@@ -1,6 +1,7 @@
 body {
 	background-color: white;
 	font-family: 'avenir';
+    overflow-x: hidden;
 }
 
 #landing {
@@ -9,7 +10,7 @@ body {
 	flex-direction: column;
  	align-items: center;
  	justify-content: center;
-	background-color: #709e71;
+	background-color: #6a9c6b;
 	top: 0;
 	left: 0;
 	height: 100vh;
@@ -23,13 +24,13 @@ body {
 }
 
 .down {
-	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-width: 1.5px;
 	-webkit-text-stroke-color: white;
 	position: absolute;
 	top: 85vh;
 	padding: 20px;
 	font-size: 3.5em;
-	color: #709e71;  
+	color: #6a9c6b;  
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-in-out;
 }
@@ -43,29 +44,95 @@ body {
 #landing h1 {
 	text-align: center;
 	letter-spacing: .5vw;
-	color: #709e71;  
-	-webkit-text-stroke-width: 2px;
-	-webkit-text-stroke-color: white;
+	color: white;
 	font-size: 5em;
 	-webkit-transition: all 0.3s ease-in-out;
 }
 
-#landing h1:hover {
+
+#landing p {
+	text-align: center;
+	letter-spacing: .5vw;
+	color: #6a9c6b;  
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+	font-size: 2em;
+	-webkit-transition: all 0.3s ease-in-out;
+}
+
+#landing p:hover {
 	color: white;
 	-webkit-transition: all 0.3s ease-in-out;
+}
+
+
+/* VERTICAL FLIP */
+
+/* entire container, keeps perspective */
+.flip-container {
+	position: relative;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateX(180deg);
+}
+
+.flip-container .flipper {
+	transform-origin: 100% 50px; /* half of height */
+}
+
+.flip-container, .front, .back {
+	width: 90vw;
+	height: 100px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateX(180deg);
 }
 
 header {
 	position: sticky;
 	display: block;
 	top: 0px;
-	background-color: #709e71;
+	background-color: #6a9c6b;
 	width: 100%;
 	height: 100px;
 	text-align: center;
 }
 
+header a, a:visited {
+	font-size: 1.5em;
+	color: white;
+	text-decoration: none;
+}
+
 .homelink {
+	overflow: hidden;
+	z-index: 100;
 	position: absolute;
 	left: 0;
 	padding-top: 50px;
@@ -78,26 +145,23 @@ header {
 
 
 .homelink a{
+	display: inline-block;
+	overflow-x: hidden;
+	margin-top: -50px;
 	padding-top: 50px;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-bottom: 20px;
+	padding-left: 3vw;
+	padding-bottom: 17px;
+	width: 30vw;
 	-webkit-transition: all 0.3s ease-in-out;
-
 }
 
 .homelink a:hover {
+	overflow-x: hidden;
 	color: #709e71;
 	background-color: white;
+	padding-right: 75vw;
 	-webkit-transition: all 0.3s ease-in-out;
 }
-
-header a, a:visited {
-	font-size: 1.5em;
-	color: white;
-	text-decoration: none;
-}
-
 
 .main p
 {
@@ -140,81 +204,3 @@ header a, a:visited {
 }
 
 
-
-
-/**
-
-#navbar{
-	position: fixed;
-	display: block;
-    left: 50%;
-    transform: translate(-50%, 0);
-	background-color: #cccccc;
-	z-index: 100;
-	top: 110px;
-	height: 5px;
-	width: 80%;
-	border-radius: 3px;
-}
-
-
-#about {
-	z-index: 90;
-	position: fixed;
-	display: block;
-	top: 5px;
-	width: 8px;
-	height: 20px;
-	background-color: #cccccc;
-	border-radius: 3px;
-    left: 47%;
-    transform: translate(-50%, 0);
-	-webkit-transition: all 0.3s ease-in-out;
-}
-
-#about:hover {
-	height: 35px;
-	background-color: #6b6b6b;
-	-webkit-transition: all 0.3s ease-in-out;
-}
-
-#work {
-	z-index: 90;
-	position: fixed;
-	display: block;
-	top: 5px;
-	width: 8px;
-	height: 20px;
-	background-color: #cccccc;
-    left: 50%;
-    transform: translate(-50%, 0);
-	-webkit-transition: all 0.3s ease-in-out;
-}
-
-#work:hover {
-	height: 35px;
-	background-color: #6b6b6b;
-	-webkit-transition: all 0.3s ease-in-out;
-}
-
-#contact {
-	z-index: 90;
-	position: fixed;
-	display: block;
-	top: 5px;
-	width: 8px;
-	height: 20px;
-	background-color: #cccccc;
-    left: 53%;
-    transform: translate(-50%, 0);
-	-webkit-transition: all 0.3s ease-in-out;
-}
-
-
-#contact:hover {
-	height: 35px;
-	background-color: #6b6b6b;
-	-webkit-transition: all 0.3s ease-in-out;
-}
-
-**/
