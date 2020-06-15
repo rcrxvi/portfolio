@@ -1,7 +1,8 @@
 body {
-	background-color: white;
+	background-color: #FFF0DB;
 	font-family: 'avenir';
     overflow-x: hidden;
+    color: #431822;
 }
 
 #landing {
@@ -10,7 +11,7 @@ body {
 	flex-direction: column;
  	align-items: center;
  	justify-content: center;
-	background-color: #5c915c;
+	background-color: #E18B66;
 	top: 0;
 	left: 0;
 	height: 100vh;
@@ -23,47 +24,55 @@ body {
  padding: 0px;
 }
 
+a, a:active, a:visited {
+	text-decoration: none;
+}
+
 .down {
 	-webkit-text-stroke-width: 1.5px;
-	-webkit-text-stroke-color: white;
+	-webkit-text-stroke-color: #431822;
 	position: absolute;
 	top: 85vh;
 	padding: 20px;
-	font-size: 3.5em;
 	color: transparent;  
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-in-out;
 }
 
+.down::after {
+	font-size: 3.5em;
+	content: "\f078";
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 50px;
+
+}
+
 .down:hover {
-	color: white;
+	color: #431822;
 	opacity: 0.8;
 	-webkit-transition: all 0.3s ease-in-out;
 }
 
-#landing h1 {
+#landing h6 {
 	text-align: center;
-	letter-spacing: .5vw;
-	color: white;
-	font-size: 5em;
-	-webkit-transition: all 0.3s ease-in-out;
+	letter-spacing: .7vw;
+	color: #431822;
+	font-size: 4em;
+	font-family: 'Prata', serif;
 }
 
 
 #landing p {
 	text-align: center;
 	letter-spacing: .5vw;
-	color: #6a9c6b;  
+	color: #431822;  
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: white;
+	-webkit-text-stroke-color: #431822;
 	font-size: 2em;
-	-webkit-transition: all 0.3s ease-in-out;
 }
 
-#landing p:hover {
-	color: white;
-	-webkit-transition: all 0.3s ease-in-out;
-}
 
 
 /* VERTICAL FLIP */
@@ -71,6 +80,7 @@ body {
 /* entire container, keeps perspective */
 .flip-container {
 	position: relative;
+	margin-top: -80px;
 }
 
 /* flip the pane when hovered */
@@ -112,13 +122,15 @@ body {
 /* back, initially hidden pane */
 .back {
 	transform: rotateX(180deg);
+	margin-top: 30px;
 }
 
 header {
+	z-index: 998;
 	position: sticky;
 	display: block;
 	top: 0px;
-	background-color: #5c915c;
+	background-color:  #E18B66;
 	width: 100%;
 	height: 100px;
 	text-align: center;
@@ -126,7 +138,7 @@ header {
 
 header a, a:visited {
 	font-size: 1.5em;
-	color: white;
+	color: #FFF0DB;
 	text-decoration: none;
 }
 
@@ -140,7 +152,6 @@ header a, a:visited {
 	background: transparent;
 	text-align: left;
 	letter-spacing: .2vw;
-	-webkit-transition: all 0.3s ease-in-out;
 }
 
 
@@ -152,23 +163,15 @@ header a, a:visited {
 	padding-left: 3vw;
 	padding-bottom: 17px;
 	width: 30vw;
+	font-family: 'Prata', serif;
 	-webkit-transition: all 0.3s ease-in-out;
 }
 
 .homelink a:hover {
-	overflow-x: hidden;
-	color: #5c915c;
-	background-color: white;
-	padding-right: 75vw;
+	color: #431822;
+	font-family: 'Prata', serif;
 	-webkit-transition: all 0.3s ease-in-out;
 }
-
-.main p
-{
-	padding: 10px;
-}
-
-
 
 .nav {
 	position: absolute;
@@ -178,42 +181,173 @@ header a, a:visited {
 	background: transparent;
 	text-align: left;
 	letter-spacing: .2vw;
-	-webkit-transition: all 0.3s ease-in-out;
 }
 
 
 .nav a{
 	padding-top: 50px;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 28px;
+	overflow: hidden;
 	-webkit-transition: all 0.3s ease-in-out;
 
 }
 
 .nav a:hover {
-	color: #5c915c;
-	background-color: white;
+	color: #431822;
 	-webkit-transition: all 0.3s ease-in-out;
 }
 
 .nav a, a:visited {
 	font-size: 1em;
-	color: white;
+	color: #FFF0DB;
 	text-decoration: none;
 }
 
 
-#scrolltop {
-	position: fixed;
-	display: block;
-	background-color: #5c915c;
-	color: white;
-	bottom: 50px;
-	right: 0px;
-	text-align: center;
-	width: 100px;
-	height: 100px;
-	font-size: 2em;
+
+
+
+/** SCROLLTOP BUTTOM **/
+
+#button {
+  display: inline-block;
+  background-color: #431822;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  transition: background-color .3s, 
+  opacity .5s, visibility .5s;
+  z-index: 1000;
+  opacity .5s, visibility .5s;
+  opacity: 0;
 }
 
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+
+#button:active {
+  background-color: #555;
+}
+
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5em;
+  line-height: 50px;
+  color: #fff;
+}
+
+#work {
+	display: block;
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: transparent;
+	padding-top: 50px;
+}
+
+#work h2 {
+	text-align: right;
+	margin-right: -50px;
+	font-size: 6em;
+	letter-spacing: .5vw;
+	color: #E18B66;
+	-webkit-transition: all 0.3s ease-in-out;
+	cursor: default;
+}
+
+#work h2:hover {
+	color: #431822;
+	-webkit-transition: all 0.3s ease-in-out;
+}
+
+
+.left {
+	position: relative;
+	display: inline-block;
+	width: 90vw;
+	margin: 0 auto;
+}
+
+.left h3 {
+	font-size: 1.5em;
+	padding-bottom: 5px;
+	font-family: 'Prata', serif;
+	margin-right: -50px;
+}
+
+.left h4 {
+	color: #E18B66;
+	padding-bottom: 10px;
+	margin-right: -50px;
+}
+
+.leftwork {
+	position: relative;
+	right: 0;
+	margin-top: 70px;
+	width: 40vw;
+	text-align: right;
+}
+
+.leftwork a{
+	text-decoration: none;
+}
+
+.right {
+	position: 0;
+	float: right;
+	display: inline-block;
+	width: 90vw;
+	right: 0;
+}
+
+
+.right h3 {
+	font-size: 1.5em;
+	padding-bottom: 5px;
+	font-family: 'Prata', serif;
+	margin-left: -50px;
+}
+
+.right h4 {
+	color: #E18B66;
+	padding-bottom: 10px;
+	margin-left: -50px;
+}
+.rightwork {
+	position: relative;
+	float: right;
+	right: 0;
+	margin-top: 70px;
+	text-align: left;
+	width: 40vw;
+}
+
+.rightwork a{
+	text-decoration: none;
+}
+
+.leftimg {
+
+}
+
+.rightimg {
+
+}

@@ -10,3 +10,21 @@ $(document).ready(function () {
  }, 1000);
  });
 });
+
+jQuery(document).ready(function() {
+  var btn = $('#button');
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 700) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+    	scrollTop: $(".down").offset().top + $(".down").outerHeight(true)}, '300');
+  });
+});
